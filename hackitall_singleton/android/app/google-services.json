@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "718144243029",
+    "project_id": "hackitall-singleton",
+    "storage_bucket": "hackitall-singleton.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718144243029:android:ddf5fc4e05d820a270dbdc",
+        "android_client_info": {
+          "package_name": "com.example.hackitall_singleton"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRWNkzyTKJqw2F4Zc1WuGNyXbYgaurKTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
