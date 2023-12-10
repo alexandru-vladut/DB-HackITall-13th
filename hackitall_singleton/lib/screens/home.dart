@@ -12,6 +12,7 @@ import 'package:hackitall_singleton/my_utilities/constants.dart';
 import 'package:hackitall_singleton/screens/add_card.dart';
 import 'package:hackitall_singleton/screens/send_money.dart';
 import 'package:intl/intl.dart';
+import 'package:hackitall_singleton/screens/returo_view.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -281,7 +282,7 @@ class HomeState extends State<Home> {
                   children: [
                     InkWell(
                       onTap: () {
-                        // Define your onTap action for the first item
+                        Navigator.push(context, SlideRightToLeft(page: ReturoView()));
                       },
                       child: Container(
                         padding: const EdgeInsets.all(15),
