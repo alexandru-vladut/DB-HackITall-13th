@@ -106,6 +106,15 @@ class _SendMoneyState extends State<SendMoney> {
       });
     }
 
+    final collection = FirebaseFirestore.instance.collection('transactions');
+    await collection.add({
+      'sender': userDetails[0],
+      'receiver': usersList[selectedPersonIndex]['name'],
+      'amount': amountController.text,
+      'type': "personal",
+      'time': Timestamp.fromDate(DateTime.now()),
+    });
+
     // ================ RECEIVER ===================================
     var receiverDocSnapshot = await FirebaseFirestore.instance
         .collection('users')

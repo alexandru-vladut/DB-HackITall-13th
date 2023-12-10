@@ -87,14 +87,19 @@ class _TransactionListState extends State<TransactionList> {
                           )
                         ],
                         image: (transaction['type'] == "person")
-                            ? DecorationImage(
-                                image: AssetImage(memojis[i % 9]),
-                                fit: BoxFit.cover,
-                              )
-                            : DecorationImage(
-                                image: AssetImage(vendorLogo[transaction['receiverName']]),
-                                fit: BoxFit.cover,
-                              ),
+                                ? DecorationImage(
+                                    image: AssetImage(memojis[i % 9]),
+                                    fit: BoxFit.cover,
+                                  )
+                                : (transaction['type'] == "vendor") 
+                                ? DecorationImage(
+                                    image: AssetImage(vendorLogo[transaction['receiverName']]),
+                                    fit: BoxFit.cover,
+                                  )
+                                : DecorationImage(
+                                    image: AssetImage(vendorLogo[transaction['senderName']]),
+                                    fit: BoxFit.cover,
+                                  ),
                         shape: BoxShape.circle,
                       ),
                       child: const SizedBox()),
@@ -104,9 +109,13 @@ class _TransactionListState extends State<TransactionList> {
                     : transaction['senderName'],
                     style: const TextStyle(color: Colors.black, fontWeight: FontWeight.w500)),
                     
-                  subtitle: Text(
-                    DateFormat('d MMMM, HH:mm').format(transaction['time'].toDate()),
-                    style: const TextStyle(color: Colors.black)),
+                  subtitle: (transaction['type'] == "cashback")
+                      ? const Text(
+                          "Eco Cashback",
+                          style: TextStyle(color: Colors.green))
+                      : Text(
+                          DateFormat('d MMMM, HH:mm').format(transaction['time'].toDate()),
+                          style: const TextStyle(color: Colors.black)),
       
                   trailing: (transaction['senderName'] == userDetails[0])
                   ? Text(

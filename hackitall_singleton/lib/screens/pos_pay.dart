@@ -97,6 +97,15 @@ class _PosPayState extends State<PosPay> {
       'type': "vendor",
     });
 
+    final collection = FirebaseFirestore.instance.collection('transactions');
+      await collection.add({
+        'sender': userDetails[0],
+        'receiver': selectedVendor,
+        'amount': amountController.text,
+        'type': "vendor",
+        'time': Timestamp.fromDate(DateTime.now()),
+      });
+
     if (cardType == 'credit' && isEcoFriendly == 'false') {
 
       double senderSold = senderDoc.get("creditCard")['sold'].toDouble();
@@ -111,6 +120,7 @@ class _PosPayState extends State<PosPay> {
           'transactions': senderTransactionsArray,
         });
       }
+
     } else if (cardType == 'credit' && isEcoFriendly == 'true') {
 
       double senderSold = senderDoc.get("creditCard")['sold'].toDouble();
@@ -125,6 +135,14 @@ class _PosPayState extends State<PosPay> {
 
       Map senderEcoCard = senderDoc.get("ecoCard") as Map;
       senderEcoCard['sold'] = senderEcoSold;
+
+      senderTransactionsArray.add({
+        'amount': cashBackReward.toString(),
+        'senderName': selectedVendor,
+        'receiverName': userDetails[0],
+        'time': Timestamp.fromDate(DateTime.now()),
+        'type': "cashback",
+      });
       
       if (senderDocSnapshot.docs.isNotEmpty) {
         await senderDocSnapshot.docs.first.reference.update({

@@ -360,7 +360,20 @@ class HomeState extends State<Home> {
 
               const Gap(18),
               
-              MediaQuery.removePadding(
+              (hasCard[0] == false || transactionList.isEmpty)
+              ? const SizedBox(
+                height: 180,
+                child: Center(
+                  child: Text(
+                    "No transactions yet.",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              )
+              : MediaQuery.removePadding(
                 removeTop: true,
                 context: context,
                 child: ListView.builder(
@@ -393,8 +406,13 @@ class HomeState extends State<Home> {
                                     image: AssetImage(memojis[i % 9]),
                                     fit: BoxFit.cover,
                                   )
-                                : DecorationImage(
+                                : (transaction['type'] == "vendor") 
+                                ? DecorationImage(
                                     image: AssetImage(vendorLogo[transaction['receiverName']]),
+                                    fit: BoxFit.cover,
+                                  )
+                                : DecorationImage(
+                                    image: AssetImage(vendorLogo[transaction['senderName']]),
                                     fit: BoxFit.cover,
                                   ),
                             shape: BoxShape.circle,
@@ -406,9 +424,13 @@ class HomeState extends State<Home> {
                         : transaction['senderName'],
                         style: const TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500)),
                         
-                      subtitle: Text(
-                        DateFormat('d MMMM, HH:mm').format(transaction['time'].toDate()),
-                        style: const TextStyle(color: Colors.black)),
+                      subtitle: (transaction['type'] == "cashback")
+                      ? const Text(
+                          "Eco Cashback",
+                          style: TextStyle(color: Colors.green))
+                      : Text(
+                          DateFormat('d MMMM, HH:mm').format(transaction['time'].toDate()),
+                          style: const TextStyle(color: Colors.black)),
 
                       trailing: (transaction['senderName'] == userDetails[0])
                       ? Text(

@@ -53,7 +53,7 @@ class DefaultTextField extends StatelessWidget {
           enabled: enabled,
           focusNode: focusNode,
           keyboardType: keyboardType,
-          cursorColor: Colors.white.withOpacity(0.5),
+          cursorColor: Colors.black,
           textInputAction: textInputAction ?? TextInputAction.next,
           onFieldSubmitted: onFieldSubmitted,
           validator: (value) {
