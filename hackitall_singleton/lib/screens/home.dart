@@ -91,27 +91,32 @@ class HomeState extends State<Home> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Hi ${userDetails[0]}',
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.7),
-                          fontSize: 16,
-                        )
+                      Row(
+                        children: [
+                          Text(
+                            'Hi, ',
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.7),
+                              fontSize: 26,
+                            )
+                          ),
+                          Text(
+                            userDetails[0],
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.8),
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold,
+                            )
+                          ),
+                          Text(
+                            '.',
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.7),
+                              fontSize: 26,
+                            )
+                          ),
+                        ],
                       ),
-                      const Gap(3),
-                      const Text(
-                        'Welcome back!',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
                   Container(
                     padding: const EdgeInsets.all(10),
                     decoration: const BoxDecoration(
@@ -119,7 +124,7 @@ class HomeState extends State<Home> {
                       color: Colors.white,
                     ),
                     child: Image.asset(
-                      'assets/images/small_logo.png',
+                      'assets/images/micalbastru.png',
                       width: 30,
                     ),
                   )
@@ -192,7 +197,7 @@ class HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            creditCardDetails[5],
+                            (double.parse(creditCardDetails[5])).toStringAsFixed(2),
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 35,
@@ -241,7 +246,7 @@ class HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            ecoCardDetails[4],
+                            (double.parse(ecoCardDetails[4])).toStringAsFixed(2),
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 35,
@@ -299,7 +304,7 @@ class HomeState extends State<Home> {
                         ),
                         // child: Image.asset('assets/images/qr_code.png', width: 24), // Adjusted image size
                         child: const Icon(
-                          Icons.money,
+                          Icons.send_rounded,
                           color: Colors.black,
                           size: 25,
                         ),
@@ -354,12 +359,6 @@ class HomeState extends State<Home> {
               ),
 
               const Gap(18),
-
-              const Text('Latest Transactions',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold)),
               
               MediaQuery.removePadding(
                 removeTop: true,
@@ -373,7 +372,7 @@ class HomeState extends State<Home> {
                     return ListTile(
                       isThreeLine: true,
                       minLeadingWidth: 10,
-                      minVerticalPadding: 20,
+                      minVerticalPadding: 15,
                       contentPadding: const EdgeInsets.all(0),
                       leading: Container(
                           width: 40,
@@ -394,7 +393,10 @@ class HomeState extends State<Home> {
                                     image: AssetImage(memojis[i % 9]),
                                     fit: BoxFit.cover,
                                   )
-                                : null,
+                                : DecorationImage(
+                                    image: AssetImage(vendorLogo[transaction['receiverName']]),
+                                    fit: BoxFit.cover,
+                                  ),
                             shape: BoxShape.circle,
                           ),
                           child: const SizedBox()),
@@ -402,7 +404,7 @@ class HomeState extends State<Home> {
                         (transaction['senderName'] == userDetails[0])
                         ? transaction['receiverName']
                         : transaction['senderName'],
-                        style: const TextStyle(color: Colors.black, fontWeight: FontWeight.w500)),
+                        style: const TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500)),
                         
                       subtitle: Text(
                         DateFormat('d MMMM, HH:mm').format(transaction['time'].toDate()),

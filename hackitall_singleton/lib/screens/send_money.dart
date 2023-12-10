@@ -256,37 +256,14 @@ class _SendMoneyState extends State<SendMoney> {
                           ),
                         ),
                       ),
-                      const SizedBox(width: 10,),
-                      InkWell(
-                        onTap: () {
-                          setState(() {
-                            if (cardType == "eco") {
-                              cardType = "credit";
-                            } else {
-                              cardType = "eco";
-                            }
-                          });
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: const Color.fromARGB(255, 161, 161, 161).withOpacity(0.15),
-                          ),
-                          // child: Image.asset('assets/images/qr_code.png', width: 24), // Adjusted image size
-                          child: const Icon(
-                            Icons.swipe_vertical_sharp,
-                            color: Colors.black,
-                            size: 20,
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                   Row(
                     children: [
                       Text(
-                        (cardType == "credit") ? creditCardDetails[5] : ecoCardDetails[4],
+                        (cardType == "credit")
+                        ? (double.parse(creditCardDetails[5])).toStringAsFixed(2)
+                        : (double.parse(ecoCardDetails[4])).toStringAsFixed(2),
                         style: TextStyle(
                           color: Repository.titleColor(context),
                           fontSize: 25,

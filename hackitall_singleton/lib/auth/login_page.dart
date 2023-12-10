@@ -46,8 +46,8 @@ class LoginPageState extends State<LoginPage>
                 colors: <Color>[
                   // Color.fromARGB(255, 169, 255, 222),
                   // Color.fromARGB(255, 62, 123, 99),
-                  Color.fromARGB(255, 255, 255, 255),
-                  Color.fromARGB(255, 211, 211, 211),
+                  Color.fromARGB(255, 34, 82, 255),
+                  Color.fromARGB(255, 0, 4, 106),
                   // Color.fromARGB(255, 75, 96, 255),
                   // Color.fromARGB(255, 0, 9, 132)
                 ],
@@ -64,7 +64,7 @@ class LoginPageState extends State<LoginPage>
                 child: Image(
                     height: MediaQuery.of(context).size.height > 800 ? 191.0 : 150,
                     fit: BoxFit.contain,
-                    image: const AssetImage('assets/images/logo.png')),
+                    image: const AssetImage('assets/images/marealb.png')),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20.0),
@@ -113,7 +113,7 @@ class LoginPageState extends State<LoginPage>
       width: 300.0,
       height: 50.0,
       decoration: const BoxDecoration(
-        color: Color.fromARGB(82, 2, 0, 130),
+        color: Color.fromARGB(82, 0, 0, 0),
         borderRadius: BorderRadius.all(Radius.circular(25.0)),
       ),
       child: CustomPaint(
@@ -128,7 +128,7 @@ class LoginPageState extends State<LoginPage>
                 ),
                 onPressed: _onSignInButtonPress,
                 child: Text(
-                  'Autentificare',
+                  'Sign In',
                   style: TextStyle(
                       color: left,
                       fontSize: 16.0,
@@ -144,7 +144,7 @@ class LoginPageState extends State<LoginPage>
                 ),
                 onPressed: _onSignUpButtonPress,
                 child: Text(
-                  'Înregistrare',
+                  'Sign Up',
                   style: TextStyle(
                       color: right,
                       fontSize: 16.0,

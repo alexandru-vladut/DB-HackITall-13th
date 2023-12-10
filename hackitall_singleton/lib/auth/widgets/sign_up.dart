@@ -46,7 +46,7 @@ class SignUpState extends State<SignUp> {
     CoolAlert.show(
       context: context,
       type: CoolAlertType.loading,
-      text: 'Se încarcă...',
+      text: 'Loading...',
     );
 
     try {
@@ -147,7 +147,7 @@ class SignUpState extends State<SignUp> {
                                 Icons.person_outline_outlined,
                                 color: Colors.black,
                               ),
-                              hintText: 'Nume',
+                              hintText: 'Name',
                               hintStyle: TextStyle(
                                   fontFamily: 'WorkSansSemiBold',
                                   fontSize: 16.0,
@@ -189,7 +189,7 @@ class SignUpState extends State<SignUp> {
                                 Icons.mail_outline_outlined,
                                 color: Colors.black,
                               ),
-                              hintText: 'Adresă de email',
+                              hintText: 'Email',
                               hintStyle: TextStyle(
                                   fontFamily: 'WorkSansSemiBold',
                                   fontSize: 16.0,
@@ -231,7 +231,7 @@ class SignUpState extends State<SignUp> {
                                 Icons.lock_outlined,
                                 color: Colors.black,
                               ),
-                              hintText: 'Parolă',
+                              hintText: 'Password',
                               hintStyle: const TextStyle(
                                   fontFamily: 'WorkSansSemiBold',
                                   fontSize: 16.0,
@@ -284,7 +284,7 @@ class SignUpState extends State<SignUp> {
                                 Icons.lock_outlined,
                                 color: Colors.black,
                               ),
-                              hintText: 'Confirmă parola',
+                              hintText: 'Confirm password',
                               hintStyle: const TextStyle(
                                   fontFamily: 'WorkSansSemiBold',
                                   fontSize: 16.0,
@@ -329,20 +329,13 @@ class SignUpState extends State<SignUp> {
                   margin: EdgeInsets.only(top: buttonMargin),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                        color: Color.fromARGB(255, 90, 90, 90),
-                        offset: Offset(0.1, 3.0),
-                        blurRadius: 4.0,
-                      ),
-                    ],
-                    color: Color.fromARGB(255, 0, 16, 122),
+                    color: Color.fromARGB(255, 0, 10, 76),
                   ),
                   child: MaterialButton(
                     highlightColor: Colors.transparent,
                     splashColor: const Color.fromARGB(255, 38, 40, 110),
                     child: const Text(
-                      'Creează contul',
+                      'Create account',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.0,

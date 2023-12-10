@@ -3,6 +3,9 @@ import 'package:hackitall_singleton/github_utilities/repo/repository.dart';
 import 'package:hackitall_singleton/github_utilities/utils/iconly/iconly_bold.dart';
 import 'package:hackitall_singleton/github_utilities/utils/styles.dart';
 import 'package:hackitall_singleton/screens/home.dart';
+import 'package:hackitall_singleton/screens/pos_pay.dart';
+import 'package:hackitall_singleton/screens/profile.dart';
+import 'package:hackitall_singleton/screens/transaction_list.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class BottomNav extends StatefulWidget {
@@ -14,15 +17,14 @@ class BottomNav extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _BottomNavState extends State<BottomNav> {
+
   int _selectedIndex = 0;
+
   static final List<Widget> _widgetOptions = <Widget>[
     const Home(),
-    const Home(),
-    const Home(),
-    const Home(),
-    // const Wallet(),
-    // const Profile(),
-    // const Profile(),
+    const PosPay(),
+    const TransactionList(),
+    const Profile(),
   ];
 
   void _onItemTapped(int index) {
@@ -51,7 +53,7 @@ class _BottomNavState extends State<BottomNav> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(IconlyBold.Wallet),
+            icon: Icon(Icons.add_shopping_cart),
             label: 'Wallet',
           ),
           BottomNavigationBarItem(

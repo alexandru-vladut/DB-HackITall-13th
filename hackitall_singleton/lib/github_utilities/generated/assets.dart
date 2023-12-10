@@ -26,4 +26,10 @@ class Assets {
   static const String memoji8 = 'assets/memoji/8.png';
   static const String memoji9 = 'assets/memoji/9.png';
 
+  static const String env1 = 'assets/env/a1.png';
+  static const String env2 = 'assets/env/a2.png';
+  static const String env3 = 'assets/env/a3.jpg';
+  static const String env4 = 'assets/env/a4.jpg';
+  static const String env5 = 'assets/env/a5.jpg';
+
 }

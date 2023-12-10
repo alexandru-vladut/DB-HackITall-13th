@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cool_alert/cool_alert.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hackitall_singleton/github_utilities/generated/assets.dart';
 
 const kMainColor = Color(0xFFFCFCFC);
 const kSecondaryColor = Color(0xff15c682);
@@ -19,6 +20,30 @@ const kOragneColor = Color(0xFFFF633E);
 const kRedColor = Color(0xFFF15249);
 const kWhiteLightColor = Color(0xFFFCFCFC);
 const kGreyLightColor = Color(0xFFD9D9D9);
+
+Map vendorLogo = {
+    'Carrefour': 'assets/vendor_logos/carrefour.png',
+    'Nike': 'assets/vendor_logos/nike.png',
+    'Starbucks': 'assets/vendor_logos/starbucks.png',
+    'IKEA': 'assets/vendor_logos/ikea.png',
+    'H&M': 'assets/vendor_logos/hm.png',
+    
+    'Asociaţia Copacul de Hârtie': Assets.env1,
+    'Asociaţia Sudcarpatica': Assets.env2,
+    'Asociaţia Ecosophia': Assets.env4,
+    'Asociaţia Slow Food': Assets.env3,
+    'Asociaţia Rara Avis': Assets.env1,
+    'Asociaţia EcoLogic': Assets.env2,
+  };
+
+Map envLogo = {
+  'Asociaţia Copacul de Hârtie': Assets.env1,
+  'Asociaţia Sudcarpatica': Assets.env2,
+  'Asociaţia Ecosophia': Assets.env4,
+  'Asociaţia Slow Food': Assets.env3,
+  'Asociaţia Rara Avis': Assets.env1,
+  'Asociaţia EcoLogic': Assets.env2,
+};
 
 void getUserDetails(User user, List<String> userDetails, List<String> fields, Function() onCompletion) async {
 

@@ -73,12 +73,10 @@ flutter:
   assets:
     - assets/cards/visa.png
     - assets/cards/mastercard.png
-    - assets/images/qr_code.png
-    - assets/images/returo.png
-    - assets/images/small_logo.png
-    - assets/images/logo.png
-    - assets/images/logo_invers.png
+    - assets/images/
     - assets/memoji/
+    - assets/vendor_logos/
+    - assets/env/
 
   fonts:
     - family: DMSans

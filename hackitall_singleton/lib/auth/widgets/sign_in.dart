@@ -43,7 +43,7 @@ class SignInState extends State<SignIn> {
     CoolAlert.show(
       context: context,
       type: CoolAlertType.loading,
-      text: 'Se încarcă...',
+      text: 'Loading...',
     );
 
     try {
@@ -183,7 +183,7 @@ class SignInState extends State<SignIn> {
                                 color: Colors.black,
                                 // size: 22.0,
                               ),
-                              hintText: 'Adresă de email',
+                              hintText: 'Email',
                               hintStyle: TextStyle(
                                   fontFamily: 'WorkSansSemiBold',
                                   fontSize: 16.0,
@@ -225,7 +225,7 @@ class SignInState extends State<SignIn> {
                                 // size: 22.0,
                                 color: Colors.black,
                               ),
-                              hintText: 'Parolă',
+                              hintText: 'Password',
                               hintStyle: const TextStyle(
                                   fontFamily: 'WorkSansSemiBold',
                                   fontSize: 16.0,
@@ -270,20 +270,13 @@ class SignInState extends State<SignIn> {
                   margin: EdgeInsets.only(top: buttonMargin),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                        color: Color.fromARGB(255, 90, 90, 90),
-                        offset: Offset(0.1, 3.0),
-                        blurRadius: 4.0,
-                      ),
-                    ],
-                    color: Color.fromARGB(255, 0, 16, 122),
+                    color: Color.fromARGB(255, 0, 10, 75),
                   ),
                   child: MaterialButton(
                     highlightColor: Colors.transparent,
                     splashColor: const Color.fromARGB(255, 38, 40, 110),
                     child: const Text(
-                      'Intră în cont',
+                      'Login',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.0,
@@ -328,7 +321,7 @@ class SignInState extends State<SignIn> {
                                     topLeft: Radius.circular(20),
                                     topRight: Radius.circular(20),
                                   ),
-                                  color: Color.fromARGB(255, 38, 40, 110),
+                                  color: Color.fromARGB(255, 3, 0, 167),
                                 ),
                                 child: const Center(
                                   child: Text(
@@ -394,10 +387,10 @@ class SignInState extends State<SignIn> {
                   );
                 },
                 child: const Text(
-                  'Ai uitat parola?',
+                  'Forgot password?',
                   style: TextStyle(
                       decoration: TextDecoration.underline,
-                      color: Color.fromARGB(255, 0, 16, 122),
+                      color: Color.fromARGB(255, 255, 255, 255),
                       fontSize: 16.0,
                       fontFamily: 'WorkSansMedium'),
                 )),
