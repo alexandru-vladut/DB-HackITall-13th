@@ -11,17 +11,18 @@ class _ReturoViewState extends State<ReturoView> {
      @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 5), () {
       CoolAlert.show(
         context: context,
         type: CoolAlertType.loading,
         text: 'Se încarcă...',
-        autoCloseDuration: Duration(seconds: 3),
+        autoCloseDuration: const Duration(seconds: 3),
       ).then((_) {
-        Future.delayed(Duration(seconds: 1), () {
+        Future.delayed(const Duration(seconds: 1), () {
           CoolAlert.show(
             context: context,
             type: CoolAlertType.success,
+            title: 'Succes!',
             text: 'Cashback-ul pentru această reciclare îți va fi acordat în zilele următoare.',
           );
         });
@@ -33,22 +34,22 @@ class _ReturoViewState extends State<ReturoView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF3AAE71),
+        backgroundColor: const Color(0xFF3AAE71),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Image.asset('assets/images/returo.jpg'),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Codul cardului tau GreenGo:',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Image.asset(
               'assets/images/qr-code.png',
               width: 400,
